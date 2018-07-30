@@ -8,12 +8,12 @@ import { connect  } from 'react-redux';
 class Menu extends Component{
 
   showLoginModal = () => {
-    console.log("in showLoginModal");
     this.props.dispatch({ type: 'SHOW_LOGIN_MODAL' });
   }//end of arrow showLoginModal
 
   render(){
     let menu
+    console.log(">>> - "+this.props.isAuthenticated);
     if(!this.props.isAuthenticated){
     menu=
         <div>

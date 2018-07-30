@@ -1,6 +1,7 @@
 from rest_framework import viewsets, permissions, generics
-
-from .serializers import (LoginUserSerializer)
+from .serializers import (LoginUserSerializer,UserSerializer)
+from rest_framework.response import Response
+from knox.models import AuthToken
 
 class LoginAPI(generics.GenericAPIView):
     serializer_class = LoginUserSerializer

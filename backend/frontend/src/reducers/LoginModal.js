@@ -1,4 +1,5 @@
 const initialState = {
+  token: localStorage.getItem("token"),
   showLoginModal:false,
   isAuthenticated:null,
 };
@@ -11,9 +12,12 @@ function LoginModal(state = initialState, action) {
         showLoginModal: true
       };
     case 'HIDE_LOGIN_MODAL':
+     localStorage.setItem("token", action.data.token);
       return {
         ...state,
-        showLoginModal: false
+        ...action.data,
+        showLoginModal: false,
+        isAuthenticated:true
       };
     default:
       return state;
