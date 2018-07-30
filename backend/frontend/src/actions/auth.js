@@ -4,6 +4,16 @@ export const login = (username, password) => {
     let body = JSON.stringify({username, password});
     return fetch("/api/auth/login/", {headers, body, method: "POST"})
     .then(res => {
+                if (res.status < 500) {
+                    return res.json().then(data => {
+                        return {status: res.status, data};
+                    })
+                } else {
+                    console.log("Server Error!");
+                    throw res;
+                }
+            })
+    .then(res => {
                if (res.status === 200) {
                  console.log("yes 200");
                    dispatch({type: 'HIDE_LOGIN_MODAL', data: res.data });

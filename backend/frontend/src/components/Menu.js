@@ -13,8 +13,8 @@ class Menu extends Component{
 
   render(){
     let menu
-    console.log(">>> - "+this.props.isAuthenticated);
-    if(!this.props.isAuthenticated){
+    console.log(">>> - "+this.props.LoginModal.isAuthenticated);
+    if(!this.props.LoginModal.isAuthenticated){
     menu=
         <div>
           <Nav>
