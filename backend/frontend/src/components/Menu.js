@@ -4,13 +4,45 @@ import '../css/Menu.css';
 import { connect  } from 'react-redux';
 
 
+
 class Menu extends Component{
 
   showLoginModal = () => {
+    console.log("in showLoginModal");
     this.props.dispatch({ type: 'SHOW_LOGIN_MODAL' });
   }//end of arrow showLoginModal
 
   render(){
+    let menu
+    if(!this.props.isAuthenticated){
+    menu=
+        <div>
+          <Nav>
+            <NavItem eventKey={4} href="#">zxc</NavItem>
+          </Nav>
+
+          <Nav pullRight>
+            <NavItem eventKey={1} href="#" onClick={this.showLoginModal}>
+            <Glyphicon glyph="glyphicon glyphicon-log-in"/></NavItem>
+          </Nav>
+        </div>
+
+    }
+    else{
+    menu=
+        <div>
+          <Nav>
+            <NavItem eventKey={4} href="#">Home</NavItem>
+          </Nav>
+
+          <Nav pullRight>
+            <NavItem eventKey={1} href="#">
+            zxc<Glyphicon glyph="glyphicon glyphicon-log-out"/></NavItem>
+          </Nav>
+        </div>
+    }
+
+
     return (
 
       <Navbar className={this.props.showSideMenu? "NavbarOff":""} fixedTop>
@@ -20,20 +52,8 @@ class Menu extends Component{
         </Navbar.Brand>
 
       </Navbar.Header>
-      <Nav pullRight>
-        {this.props.LoginModal.isAuthenticated?
-          <NavItem eventKey={1} href="#">
-          zxc<Glyphicon glyph="glyphicon glyphicon-log-out"/></NavItem>
 
-          :
-
-          <NavItem eventKey={1} href="#" onClick={this.showLoginModal}>
-          <Glyphicon glyph="glyphicon glyphicon-log-in"/></NavItem>
-        }
-
-
-
-      </Nav>
+      {menu}
     </Navbar>
 
     )//end of return
