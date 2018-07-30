@@ -21,8 +21,18 @@ class Menu extends Component{
 
       </Navbar.Header>
       <Nav pullRight>
-        <NavItem eventKey={1} href="#" onClick={this.showLoginModal}>
-        <Glyphicon glyph="glyphicon glyphicon-log-in"/></NavItem>{/*  */}
+        {this.props.LoginModal.isAuthenticated?
+          <NavItem eventKey={1} href="#">
+          zxc<Glyphicon glyph="glyphicon glyphicon-log-out"/></NavItem>
+
+          :
+
+          <NavItem eventKey={1} href="#" onClick={this.showLoginModal}>
+          <Glyphicon glyph="glyphicon glyphicon-log-in"/></NavItem>
+        }
+
+
+
       </Nav>
     </Navbar>
 
@@ -34,7 +44,7 @@ class Menu extends Component{
 function mapStateToProps(state) {
   return {
     showSideMenu: state.SideMenu.showSideMenu,
-    showLoginModal:state.LoginModal.showLoginModal
+    LoginModal:state.LoginModal
   };
 }//end of mapStateToProps
 
