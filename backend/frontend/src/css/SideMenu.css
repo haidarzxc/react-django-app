@@ -1,0 +1,186 @@
+@keyframes sideOn {
+  from {
+    margin-left: -140px; 
+  }
+
+  to {
+    margin-left: 0;
+  }
+}
+
+@keyframes sideOff {
+  from {
+    margin-left: 0; 
+  }
+
+  to {
+    margin-left: -140px;
+  }
+}
+
+@keyframes bodyOff {
+  from {
+    /* width: 87.0%;  */
+    /*  16.66666667*/
+    padding-left: 200px;
+    
+  }
+
+  to {
+    /* width: 96.1%; */
+    padding-left: 60px;
+  }
+}
+
+@keyframes bodyOn {
+  from {
+    /* width: 96.1%; */
+    padding-left: 60px;
+  }
+
+  to {
+    /* width: 87.0%; */
+    padding-left: 200px;
+  }
+}
+
+@keyframes glyphOff {
+  from {
+    margin-right: 330px;
+    opacity: 0; 
+    font-size: 17.5pt;
+  }
+
+  to {
+    margin-left: 330px;
+    opacity: 1;
+    font-size: 18.5pt;
+  }
+}
+
+@keyframes glyphOn {
+  from {
+    
+  }
+
+  to {
+    
+  }
+}
+
+@keyframes itemOn {
+  from {
+    margin-left: -186px; 
+  }
+
+  to {
+    margin-left: 0px;
+  }
+}
+
+@keyframes itemOff {
+  from {
+    margin-left: 0px; 
+  }
+
+  to {
+    margin-left: -186px;
+  }
+}
+
+.SideBar{
+  z-index: 1;
+  padding-left: 0;
+  padding-right: 0;
+  height: 100%;
+  width: 200px;
+  background-color: #2a3f54;
+  animation-name: sideOn;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  position:fixed;
+}
+
+.SideBarOFF{
+  z-index: 1;
+  padding-left: 0;
+  padding-right: 0;
+  height: 100%;
+  width: 200px;
+  background-color: #2a3f54;
+  animation-name: sideOff;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  position:fixed;
+}
+
+.Body{
+  padding-left: 0;
+  padding-right: 0;
+  animation-name: bodyOn;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  
+  /* background-color: #94ccad;
+  height: 100%; */
+  width: 100%;
+}
+
+.BodyOff{
+  padding-left: 0;
+  padding-right: 0;
+  animation-name: bodyOff;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  
+  /* background-color: #94ccad;
+  height: 100%; */
+  width: 100%;
+}
+
+.SideMenu > .list-group-item, 
+.SideMenu > .list-group-item:first-child, 
+.SideMenu > .list-group-item:last-child,
+.SideMenuOff > .list-group-item, 
+.SideMenuOff > .list-group-item:first-child, 
+.SideMenuOff > .list-group-item:last-child{
+  border-radius: 0px;
+  color:white;
+  background-color: #2a3f54;
+  border:none;
+}
+
+.SideMenu > .list-group-item:hover,
+.SideMenuOff > .list-group-item:hover{
+  background-color:#ffffff ;
+  color:black;
+}
+
+.SideMenuTitle,
+.SideMenuTitleOff{
+  font-size: 17.5pt;
+  font-weight: bold;
+}
+
+.sideGlyphIconOff{
+  animation-name: glyphOff;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+.sideGlyphIcon{
+  animation-name: glyphOn;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+.MenuItem{
+  animation-name: itemOn;
+  animation-duration: 1.0s;
+  animation-fill-mode: forwards;
+}
+.MenuItemOff{
+  animation-name: itemOff;
+  animation-duration: 1.0s;
+  animation-fill-mode: forwards;
+}
