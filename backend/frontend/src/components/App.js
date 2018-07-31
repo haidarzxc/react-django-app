@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import {Grid, Row, Col} from 'react-bootstrap'
-// import SideMenu from "./SideMenu";
-// import Menu from "./Menu";
-// import LoginModal from "./LoginModal";
 import Login from "./Login";
 import Home from "./Home";
 import { connect  } from 'react-redux';
@@ -21,9 +18,9 @@ class App extends Component {
 
   PrivateRoute = ({component: ChildComponent, ...rest}) => {
        return <Route {...rest} render={props => {
-           // if (this.props.auth.isLoading) {
-           //     return <em>Loading...</em>;
-           // }
+           if (this.props.LoginModal.isLoading) {
+               return <em>Loading...</em>;
+           }
            if (!this.props.LoginModal.isAuthenticated) {
                return <Redirect to="/login" />;
            }
