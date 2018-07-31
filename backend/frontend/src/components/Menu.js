@@ -41,9 +41,17 @@ class Menu extends Component{
         </div>
     }
 
+    let NavClass;
+    if(this.props.showSideMenu){
+      NavClass="NavbarOff"
+    }
+    if(this.props.LoginModal.isAuthenticated){
+      NavClass+=" "+"NavbarOn"
+    }
+
     return (
 
-      <Navbar className={this.props.showSideMenu? "NavbarOff":""} fixedTop>
+      <Navbar className={NavClass} fixedTop>
       <Navbar.Header>
         <Navbar.Brand>
           <a href="#home">React</a>

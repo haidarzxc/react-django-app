@@ -18,7 +18,7 @@
   }
 }
 
-/* .navbar{
+.NavbarOn{
   padding-left: 2%;
   padding-right: 2%;
   border-radius: 0;
@@ -26,16 +26,16 @@
   animation-duration: .5s;
   animation-fill-mode: forwards;
 
-} */
+}
 
-/* .NavbarOff{
+.NavbarOff{
   padding-left: 2%;
   padding-right: 2%;
   border-radius: 0;
   animation-name: navOff;
   animation-duration: .5s;
   animation-fill-mode: forwards;
-} */
+}
 
 .navbar{
   padding-left: 2%;
