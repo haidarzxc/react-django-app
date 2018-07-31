@@ -35,3 +35,9 @@ export const loadUser=()=>{
     // console.log("loadUser---------------------");
   }//end of return
 }//end of loadUser
+
+export const logout=()=>{
+  return (dispatch, getState) => {
+    console.log("logout---------------------");
+  }//end of return
+}//end of loadUser

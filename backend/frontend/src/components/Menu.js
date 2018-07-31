@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navbar,NavItem,Nav,Glyphicon } from 'react-bootstrap';
 import '../css/Menu.css';
 import { connect  } from 'react-redux';
-
+import {auth} from "../actions";
 
 
 class Menu extends Component{
@@ -10,6 +10,10 @@ class Menu extends Component{
   showLoginModal = () => {
     this.props.dispatch({ type: 'SHOW_LOGIN_MODAL' });
   }//end of arrow showLoginModal
+
+  logoutUser = () =>{
+    this.props.logout();
+  }//end of arrow logoutUser
 
   render(){
     let menu
@@ -35,7 +39,7 @@ class Menu extends Component{
           </Nav>
 
           <Nav pullRight>
-            <NavItem eventKey={1} href="#">
+            <NavItem eventKey={1} href="#" onClick={this.logoutUser}>
              Welcome {this.props.LoginModal.user}! <Glyphicon glyph="glyphicon glyphicon-log-out"/></NavItem>
           </Nav>
         </div>
@@ -74,4 +78,13 @@ function mapStateToProps(state) {
   };
 }//end of mapStateToProps
 
-export default connect(mapStateToProps)(Menu)
+function mapDispatchToProps(dispatch){
+  return{
+      dispatch,
+      logout: () => {
+            return dispatch(auth.logout());
+        }
+  }//end of return
+}//end of mapDispatchToProps
+
+export default connect(mapStateToProps,mapDispatchToProps)(Menu)
