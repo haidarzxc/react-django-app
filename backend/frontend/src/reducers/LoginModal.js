@@ -2,6 +2,8 @@ const initialState = {
   token: localStorage.getItem("token"),
   showLoginModal:false,
   isAuthenticated:null,
+  user:null,
+  errors: {},
 };
 
 function LoginModal(state = initialState, action) {
@@ -17,8 +19,22 @@ function LoginModal(state = initialState, action) {
         ...state,
         ...action.data,
         showLoginModal: false,
-        isAuthenticated:true
+        isAuthenticated:true,
+        user: action.data.user['username']
       };
+
+    case 'AUTHENTICATION_ERROR':
+    case 'LOGIN_FAILED':
+    case 'LOGOUT_SUCCESSFUL':
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        showLoginModal:true,
+        errors: action.data,
+        token: null,
+        isAuthenticated: false
+      };
+
     default:
       return state;
   }

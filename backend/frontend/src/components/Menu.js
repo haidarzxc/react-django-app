@@ -13,7 +13,6 @@ class Menu extends Component{
 
   render(){
     let menu
-    console.log(">>> - "+this.props.LoginModal.isAuthenticated);
     if(!this.props.LoginModal.isAuthenticated){
     menu=
         <div>
@@ -37,11 +36,10 @@ class Menu extends Component{
 
           <Nav pullRight>
             <NavItem eventKey={1} href="#">
-            zxc<Glyphicon glyph="glyphicon glyphicon-log-out"/></NavItem>
+             Welcome {this.props.LoginModal.user}! <Glyphicon glyph="glyphicon glyphicon-log-out"/></NavItem>
           </Nav>
         </div>
     }
-
 
     return (
 

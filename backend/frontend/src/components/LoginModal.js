@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { FormGroup,ControlLabel,FormControl,HelpBlock,Button,Modal } from 'react-bootstrap';
+import { FormGroup,ControlLabel,FormControl,HelpBlock,Button,Modal,Alert } from 'react-bootstrap';
 import { connect  } from 'react-redux';
-
+import { Redirect } from 'react-router-dom';
 import {auth} from "../actions";
 
 function FieldGroup({ id, label, help, ...props }) {
@@ -50,10 +50,23 @@ class LoginModal extends Component {
 
 
   render(){
+
+    if (this.props.LoginModal.isAuthenticated) {
+        return <Redirect to="/" />
+    }
+
+    let error;
+    if(this.props.LoginModal.errors['non_field_errors']){
+      error=
+        <Alert bsStyle="danger">
+          <strong>{this.props.LoginModal.errors['non_field_errors'][0]}</strong>
+        </Alert>
+    }
+
     return(
       <Modal
 
-          show={this.props.showLoginModal}
+          show={this.props.LoginModal.showLoginModal}
           onHide={this.hideLoginModal}
           container={this}
           aria-labelledby="contained-modal-title"
@@ -65,6 +78,9 @@ class LoginModal extends Component {
           </Modal.Header>
           <form onSubmit={this.handleSubmit}>
           <Modal.Body>
+
+          {error}
+
             <FieldGroup
                id="userName"
                type="text"
@@ -95,7 +111,7 @@ class LoginModal extends Component {
 
 function mapStateToProps(state) {
   return {
-    showLoginModal: state.LoginModal.showLoginModal,
+    LoginModal: state.LoginModal,
   };
 }//end of mapStateToProps
 
