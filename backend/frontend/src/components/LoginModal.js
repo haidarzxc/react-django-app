@@ -56,7 +56,8 @@ class LoginModal extends Component {
     }
 
     let error;
-    if(this.props.LoginModal.errors['non_field_errors']){
+    if(this.props.LoginModal.errors!=null &&
+      this.props.LoginModal.errors.hasOwnProperty('non_field_errors')){
       error=
         <Alert bsStyle="danger">
           <strong>{this.props.LoginModal.errors['non_field_errors'][0]}</strong>

@@ -44,6 +44,7 @@ function LoginModal(state = initialState, action) {
         showLoginModal:true,
         errors: action.data,
         token: null,
+        user: null,
         isAuthenticated: false
       };
 
