@@ -20,9 +20,6 @@ class Menu extends Component{
     if(!this.props.LoginModal.isAuthenticated){
     menu=
         <div>
-          <Nav>
-            <NavItem eventKey={4} href="#">zxc</NavItem>
-          </Nav>
 
           <Nav pullRight>
             <NavItem eventKey={1} href="#" onClick={this.showLoginModal}>
@@ -30,20 +27,17 @@ class Menu extends Component{
           </Nav>
         </div>
 
-    }
+    }//end of user NOT Authenticated
     else{
     menu=
         <div>
-          <Nav>
-            <NavItem eventKey={4} href="#">Home</NavItem>
-          </Nav>
 
           <Nav pullRight>
             <NavItem eventKey={1} href="#" onClick={this.logoutUser}>
              Welcome {this.props.LoginModal.user}! <Glyphicon glyph="glyphicon glyphicon-log-out"/></NavItem>
           </Nav>
         </div>
-    }
+    }//end of user Authenticated
 
     let NavClass;
     if(this.props.showSideMenu){
@@ -58,7 +52,7 @@ class Menu extends Component{
       <Navbar className={NavClass} fixedTop>
       <Navbar.Header>
         <Navbar.Brand>
-          <a href="#home">React</a>
+          <a href="/">BPLSevices</a>
         </Navbar.Brand>
 
       </Navbar.Header>

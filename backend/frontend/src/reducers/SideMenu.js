@@ -5,7 +5,7 @@ const initialState = {
       link:"#",
       icon:"glyphicon glyphicon-th-list"},
     {text:" HOME",
-      link:"#",
+      link:"/",
       icon:"glyphicon glyphicon-home"},
     {text:" SETTINGS",
       link:"#",
@@ -22,7 +22,7 @@ const initialState = {
     {text:" CHARTS",
       link:"#",
       icon:"glyphicon glyphicon-stats"},
-      
+
   ]
 };
 
