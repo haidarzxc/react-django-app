@@ -1,0 +1,44 @@
+@keyframes navOn {
+  from {
+    margin-left: 60px;
+  }
+
+  to {
+    margin-left: 200px;
+  }
+}
+
+@keyframes navOff {
+  from {
+    margin-left: 200px;
+  }
+
+  to {
+    margin-left: 60px;
+  }
+}
+
+.NavbarOn{
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 0;
+  animation-name: navOn;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+
+}
+
+.NavbarOff{
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 0;
+  animation-name: navOff;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+.navbar{
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 0;
+}
