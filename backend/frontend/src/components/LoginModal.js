@@ -42,8 +42,6 @@ class LoginModal extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    // console.log('submitted: username:' + this.state.userName+
-    // ' - password: '+this.state.password);
     this.props.login(this.state.userName,this.state.password)
   }//end of handleSubmit
 

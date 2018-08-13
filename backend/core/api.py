@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from knox.models import AuthToken
 from django.contrib.auth.models import User
 from rest_framework import status
+from django.contrib.auth import logout,login
 
 class LoginAPI(generics.GenericAPIView):
     serializer_class = LoginUserSerializer
@@ -23,7 +24,6 @@ class UserAPI(generics.RetrieveAPIView):
     serializer_class = UserSerializer
 
     def get_object(self):
-        print("----------------> ",self.request.user)
         return self.request.user
 
 

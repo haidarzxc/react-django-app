@@ -13,27 +13,30 @@ function LoginModal(state = initialState, action) {
       return {
         ...state,
         showLoginModal: true
-      };
+      }
+
     case 'HIDE_LOGIN_MODAL':
       return {
         ...state,
         showLoginModal: false,
       }
-    case 'LOGIN_SUCCESSFUL':
-     localStorage.setItem("token", action.data.token);
-      return {
-        ...state,
-        ...action.data,
-        showLoginModal: false,
-        isAuthenticated:true,
-        user: action.data.user['username']
-      };
 
     case 'USER_LOADING':
         return {...state, isLoading: true};
 
     case 'USER_LOADED':
-        return {...state, isAuthenticated: true, isLoading: false, user: action.user};
+        return {...state, isAuthenticated: true, isLoading: false, user: action.user['username']};
+
+    case 'LOGIN_SUCCESSFUL':
+      localStorage.setItem("token", action.data.token);
+      return {
+        ...state,
+        ...action.data,
+        showLoginModal: false,
+        isAuthenticated:true,
+        isLoading: false,
+        user: action.data.user['username']
+      };
 
     case 'AUTHENTICATION_ERROR':
     case 'LOGIN_FAILED':
@@ -45,6 +48,7 @@ function LoginModal(state = initialState, action) {
         errors: action.data,
         token: null,
         user: null,
+        isLoading: false,
         isAuthenticated: false
       };
 
