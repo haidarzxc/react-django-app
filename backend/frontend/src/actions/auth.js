@@ -30,7 +30,7 @@ export const login = (username, password) => {
                    throw res.data;
                } else {
                    dispatch({type: "LOGIN_FAILED", data: res.data});
-                   throw res.data;
+                   // throw res.data;
                }
            })
   }//end of return
@@ -71,7 +71,7 @@ export const loadUser = () => {
                     return res.data;
                 } else if (res.status >= 400 && res.status < 500) {
                     dispatch({type: "AUTHENTICATION_ERROR", data: res.data});
-                    throw res.data;
+                    // throw res.data;
                 }
             })
     }//end of dispatch

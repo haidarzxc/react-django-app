@@ -3,6 +3,7 @@ import '../css/App.css';
 import {Grid, Row, Col} from 'react-bootstrap'
 import Login from "./Login";
 import Home from "./Home";
+import Page404 from "./Page404";
 import { connect  } from 'react-redux';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import {auth} from "../actions";
@@ -38,6 +39,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/Login" component={Login} />
           <PrivateRoute exact path="/" component={Home} />
+          <Route component={Page404} />
         </Switch>
 
       </BrowserRouter>
