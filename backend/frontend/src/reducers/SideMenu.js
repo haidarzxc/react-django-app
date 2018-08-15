@@ -20,7 +20,7 @@ const initialState = {
       link:"#",
       icon:"glyphicon glyphicon-save"},
     {text:" CHARTS",
-      link:"#",
+      link:"charts",
       icon:"glyphicon glyphicon-stats"},
 
   ]

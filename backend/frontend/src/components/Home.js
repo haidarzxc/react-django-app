@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Col,Row } from 'react-bootstrap';
-import SideMenu from "./SideMenu";
-import Menu from "./Menu";
 import { connect  } from 'react-redux';
+import '../css/Home.css';
 
 class Home extends Component{
 
@@ -10,13 +9,8 @@ class Home extends Component{
   render(){
     return (
       <Row>
-
-        <Col  xd={2} md={2} className={this.props.showSideMenu? "SideBarOFF":"SideBar"}>
-          <SideMenu/>
-        </Col>
-
-        <Col xd={10} md={10} className={this.props.showSideMenu? "BodyOff":"Body"}>
-          <Menu/>
+        <Col className="AddPadding">
+          <h1>Home</h1>
         </Col>
       </Row>
     )//end of return
@@ -26,7 +20,7 @@ class Home extends Component{
 
 function mapStateToProps(state) {
   return {
-    showSideMenu: state.SideMenu.showSideMenu,
+    SideMenu: state.SideMenu,
   };
 }//end of mapStateToProps
 

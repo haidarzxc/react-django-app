@@ -1,6 +1,6 @@
 @keyframes sideOn {
   from {
-    margin-left: -140px; 
+    margin-left: -140px;
   }
 
   to {
@@ -10,7 +10,7 @@
 
 @keyframes sideOff {
   from {
-    margin-left: 0; 
+    margin-left: 0;
   }
 
   to {
@@ -23,7 +23,7 @@
     /* width: 87.0%;  */
     /*  16.66666667*/
     padding-left: 200px;
-    
+
   }
 
   to {
@@ -47,7 +47,7 @@
 @keyframes glyphOff {
   from {
     margin-right: 330px;
-    opacity: 0; 
+    opacity: 0;
     font-size: 17.5pt;
   }
 
@@ -60,17 +60,17 @@
 
 @keyframes glyphOn {
   from {
-    
+
   }
 
   to {
-    
+
   }
 }
 
 @keyframes itemOn {
   from {
-    margin-left: -186px; 
+    margin-left: -186px;
   }
 
   to {
@@ -80,7 +80,7 @@
 
 @keyframes itemOff {
   from {
-    margin-left: 0px; 
+    margin-left: 0px;
   }
 
   to {
@@ -120,7 +120,7 @@
   animation-name: bodyOn;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  
+
   /* background-color: #94ccad;
   height: 100%; */
   width: 100%;
@@ -132,34 +132,36 @@
   animation-name: bodyOff;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  
+
   /* background-color: #94ccad;
   height: 100%; */
   width: 100%;
 }
 
-.SideMenu > .list-group-item, 
-.SideMenu > .list-group-item:first-child, 
-.SideMenu > .list-group-item:last-child,
-.SideMenuOff > .list-group-item, 
-.SideMenuOff > .list-group-item:first-child, 
-.SideMenuOff > .list-group-item:last-child{
+
+.SideMenu > .MenuItem,
+.SideMenuOff > .MenuItemOff {
   border-radius: 0px;
   color:white;
   background-color: #2a3f54;
   border:none;
+  display: block;
+  padding: 7px;
+  font-size: 18px;
+  text-decoration: none;
 }
 
-.SideMenu > .list-group-item:hover,
-.SideMenuOff > .list-group-item:hover{
+.SideMenu > .MenuItem:hover,
+.SideMenuOff > .MenuItemOff:hover {
   background-color:#ffffff ;
   color:black;
 }
 
-.SideMenuTitle,
-.SideMenuTitleOff{
-  font-size: 17.5pt;
+.SideMenu > .SideMenuTitle,
+.SideMenuOff > .SideMenuTitleOff{
+  font-size: 25px;
   font-weight: bold;
+  padding-bottom: 8px;
 }
 
 .sideGlyphIconOff{
