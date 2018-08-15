@@ -17,7 +17,7 @@ class App extends Component {
   // }//end of constructor
 
   componentDidMount(){
-    this.props.loadUser();
+    this.props.loadUser()
   }
 
   PrivateRoute = ({component: ChildComponent, ...rest}) => {
@@ -35,37 +35,47 @@ class App extends Component {
    }//end of PrivateRoute
 
   render() {
+
+    const dispatch404= ()=>{
+      this.props.dispatch({ type: 'HIDE_NAV' });
+      return null
+    }//end of dispatch404 arrow function
+
     let {PrivateRoute} = this;
     let SideBar;
+    let content;
+
     if(this.props.LoginModal.isAuthenticated){
       SideBar=
       <Col  xd={2} md={2} className={this.props.SideMenu.showSideMenu? "SideBarOFF":"SideBar"}>
         <SideMenu/>
       </Col>
-    }
+    }//end of SideBar block
+
+    if(this.props.Page404.showNav){
+      content=
+      <Row>
+        {SideBar}
+
+        <Col xd={10} md={10} className={this.props.SideMenu.showSideMenu? "BodyOff":"Body"}>
+          <Menu/>
+          <Switch>
+            <Route exact path="/Login" component={Login} />
+            <PrivateRoute exact path="/" component={Home} />
+            <PrivateRoute exact path="/charts" component={Charts} />
+            <Route component={dispatch404} />
+          </Switch>
+        </Col>
+      </Row>
+    }//end of show content
+    else{
+      content=<Route component={Page404} />
+    }//end of 404
+
     return (
       <Grid>
       <BrowserRouter>
-
-      <div>
-        <Row>
-          {SideBar}
-
-          <Col xd={10} md={10} className={this.props.SideMenu.showSideMenu? "BodyOff":"Body"}>
-            <Menu/>
-            <Switch>
-              <Route exact path="/Login" component={Login} />
-              <PrivateRoute exact path="/" component={Home} />
-              <PrivateRoute exact path="/charts" component={Charts} />
-              <Route component={Page404} />
-            </Switch>
-          </Col>
-        </Row>
-
-
-      </div>
-
-
+      {content}
       </BrowserRouter>
       </Grid>
     );//end of return
@@ -77,6 +87,7 @@ function mapStateToProps(state) {
   return {
     LoginModal: state.LoginModal,
     SideMenu: state.SideMenu,
+    Page404: state.Page404,
   };
 }//end of mapStateToProps
 

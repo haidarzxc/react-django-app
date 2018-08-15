@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import '../css/Page404.css';
 import { Col,Row, Alert } from 'react-bootstrap';
-
+import { connect  } from 'react-redux';
 class Page404 extends Component{
 
+  constructor(props){
+    super(props)
+  }//end of constructor
 
   render(){
     return (
@@ -22,4 +25,10 @@ class Page404 extends Component{
 
 }//end of class Page404
 
-export default Page404
+function mapStateToProps(state) {
+  return {
+    Page404: state.Page404,
+  };
+}//end of mapStateToProps
+
+export default connect(mapStateToProps)(Page404)
