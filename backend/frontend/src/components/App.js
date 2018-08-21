@@ -18,6 +18,7 @@ class App extends Component {
 
   componentDidMount(){
     this.props.loadUser()
+    document.title = "React";
   }
 
   PrivateRoute = ({component: ChildComponent, ...rest}) => {
