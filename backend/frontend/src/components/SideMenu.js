@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { ListGroup,ListGroupItem,Glyphicon } from 'react-bootstrap';
 import '../css/SideMenu.css';
 import { connect  } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class SideMenu extends Component{
-  
+
   triggerClick(){
     if(this.props.showSideMenu){
       this.hideSideMenu()
@@ -13,40 +14,45 @@ class SideMenu extends Component{
       this.showSideMenu()
     }
   }//end of triggerClick
-  
+
   hideSideMenu = () => {
     this.props.dispatch({ type: 'HIDE_SIDE_MENU' });
   }//end of arrow hideSideMenu
-  
+
   showSideMenu = () => {
     this.props.dispatch({ type: 'SHOW_SIDE_MENU' });
   }//end of arrow showSideMenu
-  
-  
+
+
   constructor(props){
     super(props)
     this.triggerClick = this.triggerClick.bind(this);
   }//end of constructor
-  
+
   render(){
     let links=[];
     for(var i=0; i<this.props.links.length; i++){
       var item=this.props.links[i]
       if(i===0){
-        links[i]=<ListGroupItem key={i} href={item.link} 
-        className={this.props.showSideMenu? "SideMenuTitleOff MenuItemOff":"SideMenuTitle MenuItem"}
+        links[i]=
+        <Link key={i} to={item.link}
+          className={this.props.showSideMenu? "SideMenuTitleOff MenuItemOff":"SideMenuTitle MenuItem"}
           onClick={this.triggerClick}>
-          <Glyphicon glyph={item.icon} 
-          className={this.props.showSideMenu? "sideGlyphIconOff":"sideGlyphIcon"}/>{this.props.showSideMenu? "":item.text}
-          </ListGroupItem>
+          <Glyphicon glyph={item.icon}
+            className={this.props.showSideMenu? "sideGlyphIconOff":"sideGlyphIcon"}/>{this.props.showSideMenu? "":item.text}
+
+        </Link>
         continue
       }//end of title Dashboard
-      links[i]=<ListGroupItem key={i} href={item.link}
-      className={this.props.showSideMenu? "MenuItemOff":"MenuItem"}> 
-        <Glyphicon glyph={item.icon} className={this.props.showSideMenu? "sideGlyphIconOff":"sideGlyphIcon"}/>{this.props.showSideMenu? "":item.text}
-        </ListGroupItem>
+      links[i]=
+        <Link key={i} to={item.link}
+          className={this.props.showSideMenu? "MenuItemOff":"MenuItem"}>
+          <Glyphicon glyph={item.icon}
+            className={this.props.showSideMenu? "sideGlyphIconOff":"sideGlyphIcon"}/>{this.props.showSideMenu? "":item.text}
+
+        </Link>
     }//end of forloop
-    
+
     return(
       <ListGroup className={this.props.showSideMenu? "SideMenuOff":"SideMenu"}>
         {links}
