@@ -3,7 +3,7 @@ const initialState = {
   showLoginModal:false,
   isAuthenticated:null,
   user:null,
-  isLoading:null,
+  isLoading:true,
   errors: {},
 };
 
